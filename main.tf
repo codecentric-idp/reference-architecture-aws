@@ -1,5 +1,15 @@
 # AWS reference architecture
 
+terraform {
+  cloud {
+    organization = "mschnitzius"
+
+    workspaces {
+      name = "codecentric-idp"
+    }
+  }
+}
+
 module "base" {
   source = "./modules/base"
 
