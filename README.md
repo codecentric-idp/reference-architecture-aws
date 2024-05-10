@@ -91,3 +91,84 @@ For open source projects, say how it is licensed.
 
 ## Project status
 If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+
+<!-- BEGIN_TF_DOCS -->
+### Requirements
+
+| Name | Version |
+|------|---------|
+| terraform | >= 1.3.0 |
+| aws | ~> 5.17 |
+| github | ~> 5.38 |
+| humanitec | ~> 1.0 |
+
+### Providers
+
+| Name | Version |
+|------|---------|
+| aws | ~> 5.17 |
+| github | ~> 5.38 |
+| humanitec | ~> 1.0 |
+
+### Modules
+
+| Name | Source | Version |
+|------|--------|---------|
+| backstage\_ecr | terraform-aws-modules/ecr/aws | ~> 1.6 |
+| backstage\_iam\_policy\_ecr\_create\_repository | git::https://github.com/humanitec-architecture/resource-packs-aws.git//humanitec-resource-defs/iam-policy/ecr-create-repository | n/a |
+| backstage\_iam\_role\_service\_account | git::https://github.com/humanitec-architecture/resource-packs-aws.git//humanitec-resource-defs/iam-role/service-account | n/a |
+| backstage\_k8s\_service\_account | git::https://github.com/humanitec-architecture/resource-packs-aws.git//humanitec-resource-defs/k8s/service-account | n/a |
+| backstage\_mysql | git::https://github.com/humanitec-architecture/resource-packs-in-cluster.git//humanitec-resource-defs/mysql/basic | n/a |
+| backstage\_postgres | git::https://github.com/humanitec-architecture/resource-packs-in-cluster.git//humanitec-resource-defs/postgres/basic | n/a |
+| backstage\_workload | git::https://github.com/humanitec-architecture/resource-packs-aws.git//humanitec-resource-defs/workload/service-account | n/a |
+| base | ./modules/base | n/a |
+| iam\_github\_oidc\_provider | terraform-aws-modules/iam/aws//modules/iam-github-oidc-provider | ~> 5.30 |
+| iam\_github\_oidc\_role | terraform-aws-modules/iam/aws//modules/iam-github-oidc-role | ~> 5.30 |
+| petclinic\_ecr | terraform-aws-modules/ecr/aws | ~> 1.6 |
+
+### Resources
+
+| Name | Type |
+|------|------|
+| [aws_iam_policy.ecr_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_policy.ecr_push_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_user.konstantin_bauer](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user) | resource |
+| [aws_iam_user_policy_attachment.konstantin_bauer_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user_policy_attachment) | resource |
+| [github_actions_organization_secret.backstage_humanitec_token](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_secret) | resource |
+| [github_actions_organization_variable.backstage_aws_region](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
+| [github_actions_organization_variable.backstage_aws_role_arn](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
+| [github_actions_organization_variable.backstage_cloud_provider](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
+| [github_actions_organization_variable.backstage_humanitec_org_id](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/actions_organization_variable) | resource |
+| [github_repository.backstage](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository) | resource |
+| [humanitec_application.backstage](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/application) | resource |
+| [humanitec_resource_definition_criteria.backstage_iam_policy_ecr_create_repository](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.backstage_iam_role_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.backstage_k8s_service_account](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.backstage_mysql](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.backstage_postgres](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_resource_definition_criteria.backstage_workload](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/resource_definition_criteria) | resource |
+| [humanitec_value.aws_default_region](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_cloud_provider](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_app_client_id](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_app_client_secret](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_app_id](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_app_private_key](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_app_webhook_secret](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_github_org_id](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_humanitec_org](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+| [humanitec_value.backstage_humanitec_token](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs/resources/value) | resource |
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| aws\_account\_id | AWS Account (ID) to use | `string` | n/a | yes |
+| aws\_region | AWS region | `string` | n/a | yes |
+| github\_app\_credentials | base64 encodece string of the GitHub App credentials file | `string` | n/a | yes |
+| github\_org\_id | GitHub org id | `string` | n/a | yes |
+| humanitec\_ci\_service\_user\_token | Humanitec CI Service User Token | `string` | n/a | yes |
+| humanitec\_org\_id | Humanitec Organization ID | `string` | n/a | yes |
+| disk\_size | Disk size in GB to use for EKS nodes | `number` | `20` | no |
+| instance\_types | List of EC2 instances types to use for EKS nodes | `list(string)` | <pre>[<br>  "t3.large"<br>]</pre> | no |
+| resource\_packs\_aws\_rev | Revision of the resource-packs-aws repository to use | `string` | `"refs/heads/main"` | no |
+<!-- END_TF_DOCS -->
