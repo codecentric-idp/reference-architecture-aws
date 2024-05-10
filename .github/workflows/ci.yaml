@@ -33,7 +33,7 @@ jobs:
       - name: Terraform Format Check
         run: make fmt-check
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "update terraform docs and fix formatting"
           commit_user_name: "github-actions[bot]"
